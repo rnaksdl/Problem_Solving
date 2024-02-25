@@ -1,0 +1,162 @@
+	ORG 10
+
+// Getting input for Tens Digit(Octal number in Character).
+IN1,	SKI		// look for input (Ten's digit)
+	BUN IN1		// no input
+	CLA		// clear AC
+	CLE		// clear E
+	INP		// input to AC
+
+// Converting Character to Hex.
+	BSA M30		// branch to Minus 30
+	STA TEN		// store to Ten's digit
+
+// Getting input for Ones Digit(Octal number in Character).
+IN2,	SKI		// look for input (Ones digit)
+	BUN IN2		// no input
+	CLA		// clear AC
+	CLE		// clear E
+	INP		// input to AC
+
+// Converting Character to Hex.
+	BSA M30		// branch to Minus 30
+	STA ONE		// store to Ones digit
+
+// Converting Octal Tens digit to Decimal
+	LDA TEN
+	BSA X08
+
+// Adding two values together
+	ADD ONE
+	STA HEX		// store it to Hexadecimal number
+
+
+
+// Print Decimal Method
+// getting tens digit
+PTD,	LDA HEX		// load Hexadecimal
+	STA OPA		// store it to Operation A
+	LDA P10		// load Positive 10
+	STA OPB		// store it to Operation B
+	BSA DIV		// go to Division
+	LDA CNT		// load Count
+// converting Hex to Dec
+	STA TEN		// store it to Ten
+// getting ones digit
+	LDA HEX		// load Hexadecimal
+	STA OPA		// store it to Operation A
+	LDA P10		// load Positive 10
+	STA OPB		// store it to Operation B
+	BSA MOD		// go to Mod
+	LDA OPR		// load Operation Result
+	STA ONE		// store it to One
+
+
+	LDA TEN
+	ADD P30		// add Positive 30
+	OUT		// output
+
+
+	LDA ONE
+	ADD P30		// add Positive 30
+	OUT		// output
+
+	HLT 		// quit
+
+
+// Print 0 Method
+PT0,	LDA NPR		// load Not Prime (0 in Character)
+		OUT			// output
+	
+
+	HLT 		// quit
+
+//----------------------------------
+
+M30,	HEX 0		// storing return address
+	ADD N30		// add Negative 30
+	BUN M30 I	// return
+
+//----------------------------------
+
+X08,	HEX 0		// Multiply By 8, storing return address
+	CLE		// clear E
+	CIL		// circulate left
+	CIL
+	CIL
+	BUN X08 I	// return
+
+//----------------------------------
+
+X16,	HEX 0		// Multiply By 8, storing return address
+	CLE		// clear E
+	CIL		// circulate left
+	CIL
+	CIL
+	CIL
+	BUN X16 I	// return
+
+//----------------------------------
+
+R>B,	HEX 0		// Operation Result > OPeration B method
+	LDA OPB		// load Operation B
+	CMA		// complement AC
+	INC		// increment AC
+	ADD OPR		// add with Operation Result
+	BUN R>B I	// return
+
+//----------------------------------
+
+MOD,	HEX 0		// Modular mathod, storing return address
+	LDA OPA		// load Operation A
+	STA OPR		// store it to Operation Result
+
+MLP,	BSA R>B		// Mod loop
+	SPA		// Skip Positive AC (skip if R>B)
+	BUN MOD I	// return
+	STA OPR		// store it to Operation Result
+	BUN MLP		// go to Mod Loop
+
+//----------------------------------
+
+DIV,	HEX 0		// Division mathod, storing return address
+	LDA OPA		// load Operation A
+	STA OPR		// store it to Operation Result
+	CLA		// set AC to 0
+	STA CNT		// store it to Count
+
+DLP,	BSA R>B		// Division Loop, go to R>B
+	SPA		// Skip Positive AC (skip if R>B)
+	BUN DIV I	// return
+	STA OPR		// store it to Operation Result
+	LDA CNT		// load Count
+	INC		// increment
+	STA CNT		// store it to Count
+	BUN DLP		// go to Division Loop
+
+//----------------------------------
+
+// Variables for input values
+TEN,	HEX 0		// Tens digit
+ONE,	HEX 0		// Ones digit
+HEX,	HEX 0		// Hexadecimal number
+DEC,	HEX 0		// Decimal number
+
+// Variables for integer values
+N01,	HEX -1		// Negative one
+P10,	HEX A		// Positive 10
+P30,	HEX 30		// Postive 30
+N30,	HEX -30		// Negative 30
+NPR,	HEX 30
+
+// Variables for Operations
+OPA,	HEX 0		// Operation A value
+OPB,	HEX 0		// Operation B value
+OPR,	HEX 0		// Operation Result
+TMP,	HEX 0		// Temp (for Mod method)
+CNT,	HEX 0		// Count (for Mod method)
+
+
+//----------------------------------
+
+	END 		// End of the program
