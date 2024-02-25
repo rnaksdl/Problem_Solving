@@ -1,0 +1,4 @@
+Hello, this is a test file for the project.
+It contains multiple lines of text.
+This will be read by the producer thread.
+EOF
