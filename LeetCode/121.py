@@ -8,16 +8,27 @@ You want to maximize your profit by choosing a single day to buy one stock and c
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 '''
 
+from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        buy = 10000000
-        max = 0
+		# initiallizing the buying price to a large number
+        bought_at = 10000000
+        # initiallizing the max profit to a small number
+        max_profit = 0
         
+		# iterate through the list of prices
         for price in prices:
-            if price < buy:
-                buy = price
-            if price - buy > max:
-                max = price - buy
+            # if cheaper price found, update buying price
+            if price < bought_at:
+                bought_at = price
+            # profit = price - bought_at
+            # if greaterprofit found, update max profit value
+            if price - bought_at > max_profit:
+                max_profit = price - bought_at
         
-        return max
+        return max_profit
+
+
+solution = Solution()
+print(solution.maxProfit([7, 1, 5, 3, 6, 4]))
