@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Rectagle.java&apos; to &apos;Rectangle.java&apos;&#x0A;- Original project: &apos;DayByDay&apos;&#x0A;- Original element: &apos;Rectagle.java&apos;&#x0A;- Renamed element: &apos;Rectangle.java&apos;" description="Rename compilation unit &apos;Rectagle.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Rectagle.java" name="Rectangle.java" references="false" stamp="1649868762850" version="1.0"/>
+</session>

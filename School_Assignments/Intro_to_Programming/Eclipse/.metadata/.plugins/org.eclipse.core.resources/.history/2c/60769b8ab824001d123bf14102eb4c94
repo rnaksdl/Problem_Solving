@@ -1,0 +1,55 @@
+import java.util.function.BooleanSupplier;
+
+/**
+ * Implement each of the 10 methods tested in JUnitTests.java. Study the tests
+ * to determine how the methods should work.
+ */
+public class Java1Review {
+
+	public static void main(String[] args) {
+		// If you want to write your own tests, do so here. (Do not modify
+		// JUnitTests.java.) To run this method in Eclipse, right-click
+		// Java1Review.java in the Package Explorer and select "Run As" >
+		// "Java Application" from the context menu.
+		
+		System.out.println("Hello World!");
+		
+		
+		
+	}
+
+	public static Double divide(double d, double e) {
+		// TODO Auto-generated method stub
+		return d / e;
+	}
+	public static int divide(int d, int e) {
+		// TODO Auto-generated method stub
+		return d / e;
+	}
+
+	public static boolean isDivisibleBy7(int i) {
+		// TODO Auto-generated method stub
+		if (i % 7 == 0) {
+			return true;
+		} else {
+			return false;
+			}
+		}
+
+	public static Object main(String string) {
+		// TODO Auto-generated method stub
+		return string;
+	}
+
+	public static Integer findMin(int i, int j, int k) {
+		int min = i;
+		if (j < min) {
+			min = j;
+		} else if (k < min) {
+			min = k;
+		} else {
+			min = i;
+		}
+		return min;
+	}
+}

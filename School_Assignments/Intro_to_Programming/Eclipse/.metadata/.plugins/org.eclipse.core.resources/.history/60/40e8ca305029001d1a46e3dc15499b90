@@ -1,0 +1,107 @@
+/** File: PAssign10.java
+ * Class: CSCI 1301
+ * Author: Kyumin Lee
+ * Created on: April 28, 2022
+ * Last Modified: April 28, 2022
+ * Description: takes movies and prints infos
+ */
+
+public class PAssign10 {
+	public static void main(String[] args) {
+		// intializing movies
+		Movie m1 = new Movie("Black Panther", 2018, "Action and Adventure", 97);
+		Movie m2 = new Movie("Bohemian Rhapsody", 2018, "Drama", 60);
+		Movie m3 = new Movie("The Incredibles", 2004, "Animation", 97);
+		Movie m4 = new Movie("Toy Story", 1995, "Animation", 100);
+		Movie m5 = new Movie("Venom", 2018, "Action and Adventure", 29);
+		Movie m6 = new Movie("Ratatouille", 2007, "Animation", 96);
+
+		// out put info
+		System.out.println(m1.getInfo());
+		System.out.println(m2.getInfo());
+		System.out.println(m3.getInfo());
+		System.out.println(m4.getInfo());
+		System.out.println(m5.getInfo());
+		System.out.println(m6.getInfo());	
+		System.out.println();
+	}
+}
+
+class Movie {
+	// declaring private var
+	private String title, genre;
+	private int releaseYear;
+	private double rating;
+
+	// getters and setters
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	public int getReleaseYear() {
+		return releaseYear;
+	}
+	
+	public void setReleaseYear(int releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+	
+	public double getRating() {
+		return rating;
+	}
+	
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	// default values
+	public Movie() {
+		setTitle("Untitled");
+		setReleaseYear(2018);
+		setGenre("Drama");
+		setRating(0.0);		
+	}
+
+	// convenience title setter
+	public Movie(String title) {
+		setTitle(title);
+	}
+	
+	// convenience value setter
+	public Movie(String title, int releaseYear, String genre, double rating) {
+		setTitle(title);
+		setReleaseYear(releaseYear);
+		setGenre(genre);
+		setRating(rating);
+	}
+
+	// rating to letter rating
+	public static String getRatingCategory(double rating) {
+		// rating in string according to condition
+		String letterRating = (rating >= 90) ? "Excellent" :
+			(rating >= 80) ? "Above Average" :
+				(rating >= 70) ? "Average" :
+					(rating >= 60) ? "Below Average" : "Poor";
+		
+		return letterRating;
+	}
+	
+	// get values as string
+	public String getInfo() {
+		// info string
+		String info = String.format("%s (%d), %s, Rating: %s", title,releaseYear, genre, getRatingCategory(rating));
+		return info;
+	}
+}

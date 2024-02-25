@@ -1,0 +1,42 @@
+#lang scheme
+
+; practicing
+
+(define a 2)
+
+(define double_it
+  (lambda (x)
+    (* 2 x)))
+
+a
+(double_it a)
+
+"Hello, World" ; Sting
+10             ; Integer
+3.14           ; Real
+'HelloWorld    ; Symbol
+
+(sqrt (+ (* 4 4) (* 3 3)))   ; sqrt(4*4 + 3*3) = sqrt(16 + 9) = sqrt(25)
+
+(define half_it
+  (lambda (x)
+    (/ x 2)))
+
+(half_it 20)
+
+(list 1 2 3 4)
+
+(define kyu_bday (list 09 20 2001))
+(define clr_bday '(10 09 2000))
+
+kyu_bday
+clr_bday
+
+(append kyu_bday clr_bday)
+
+
+
+
+
+
+

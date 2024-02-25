@@ -1,0 +1,87 @@
+#lang racket
+(define-namespace-anchor a)
+(define ns (namespace-anchor->namespace a))
+
+
+
+
+
+(define (trrev alist)
+  (letrec ((helper (lambda (list1 list2)
+                     (if (null? list1) list2
+                         (helper (cdr list1) (cons (car list1) list2))))))(helper alist '())))
+
+
+(define (reduce_zero alist)
+  (if (null? alist) '()
+      (if (not (null? (car alist))) alist
+          (reduce_zero (cdr alist)))))
+
+
+(define (lists_add alist blist)
+  (if (and (null? alist) (null? blist)) '()
+      (if (null? alist) blist
+          (if (null? blist) alist
+              (cons (+ (car alist) (car blist)) (lists_add (cdr alist) (cdr blist)))))))
+
+(define (listoflists_add apoly bpoly)
+  (if (and (null? apoly) (null? bpoly)) '()
+      (if (null? apoly) bpoly
+          (if (null? bpoly) apoly
+              (cons (lists_add (car apoly) (car bpoly)) (poly_add (cdr apoly) (cdr bpoly)))))))
+
+
+(define (poly_add apoly bpoly)
+  (if (null? apoly) bpoly
+      (if (null? bpoly) apoly
+          (trrev (reduce_zero (trrev (listoflists_add apoly bpoly)))))))
+
+
+
+(poly_add '((1 1) () (1 0 1)) '((1 0 1) (1 1)))
+
+(define (list_sub alist blist)
+  (if (and (null? alist) (null? blist)) '()
+      (if (null? alist) (map - blist)
+          (if (null? blist) alist
+              (cons (- (car alist) (car blist)) (list_sub (cdr alist) (cdr blist)))))))
+
+(define (poly_sub apoly bpoly)
+  (if (and (null? apoly) (null? bpoly)) '()
+      (if (null? apoly) bpoly
+          (if (null? bpoly) apoly
+              (cons (list_sub (car apoly) (car bpoly)) (poly_sub (cdr apoly) (cdr bpoly)))))))
+
+(poly_sub '((1 1) () (1 0 1)) '((1 0 1) (1 1)))
+
+(define(list_mul a l1)
+  (if (null? l1) '()
+      (cons (* a (car l1)) (list_mul a (cdr l1)))))
+
+(define (poly_mul l1 l2)
+  (if (null? l1) '()
+      (if (null? l2) '()
+          (lists_add (eval (list_mul (car l1) l2) ns ) (cons  0 (poly_mul (cdr l1) l2))))))
+
+
+(poly_mul '( (1) (1 2 3) () (3)) '((-1) (-1 2) (3)))
+
+(define (der_helper l1 n)
+  (if (null? l1) '()
+      (cons (* n (car l1)) (der_helper (cdr l1) (+ n 1)))))
+
+
+(define (poly_drx l1)
+  (if (null? l1) '()
+      (if (null? (cdr l1)) '()
+          (der_helper (cdr l1) 1))))
+
+
+(der_helper '(1 2 3) 1)
+(der_helper '(1 2 3 0 5) 1)
+(poly_drx '('()))
+(poly_drx '(3323))
+(poly_drx '(3323 1 30))
+
+
+

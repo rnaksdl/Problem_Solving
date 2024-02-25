@@ -1,0 +1,77 @@
+import java.util.function.BooleanSupplier;
+
+/**
+ * Implement each of the 10 methods tested in JUnitTests.java. Study the tests
+ * to determine how the methods should work.
+ */
+public class Java1Review {
+
+	public static void main(String[] args) {
+		// If you want to write your own tests, do so here. (Do not modify
+		// JUnitTests.java.) To run this method in Eclipse, right-click
+		// Java1Review.java in the Package Explorer and select "Run As" >
+		// "Java Application" from the context menu.
+		
+		System.out.println("Hello World!");
+		
+		
+		
+	}
+
+	public static Double divide(double d, double e) {
+		// TODO Auto-generated method stub
+		return d / e;
+	}
+	public static int divide(int d, int e) {
+		// TODO Auto-generated method stub
+		return d / e;
+	}
+
+	public static boolean isDivisibleBy7(int i) {
+		// TODO Auto-generated method stub
+		if (i % 7 == 0) {
+			return true;
+		} else {
+			return false;
+			}
+		}
+
+	public static Object main(String string) {
+		String str = String.format("Overloaded main method was passed \"%s\".", string);
+		return str;
+	}
+
+	public static int findMin(int i, int j, int k) {
+		if (i < j && i < k) {
+			return i;
+		} if (j < k && j < k) {
+			return j;
+		} else {
+			return k;
+		}
+	}
+
+	public static int findMin(int[] array) {
+		int min = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < min) {
+				array[i] = min;
+			}
+		}
+		return min;
+	}
+
+	public static Double average(int[] array) {
+		double sum = 0.0;
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		
+		return sum / array.length;
+	}
+
+	public static void toLowerCase(String[] strings) {
+		// TODO Auto-generated method stub
+		
+	}
+}

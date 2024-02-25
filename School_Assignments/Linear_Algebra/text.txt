@@ -1,0 +1,126 @@
+Final 
+1	Solve Lin Sys
+	RREF
+		1. find left most non-zero column and make it 1 by * or / in all ele in the row 		2. make all values above & below to 0 by + or - in all ele in the row
+
+2	Matrix Algebra
+	matrix multiplication 		sum of (each ele in row Ai * each ele in column Bj) = Cij
+	 	matrix inverses 		put A next to identity and solve for RREF, then I becomes inverse of A  	linear transformation
+		T : V -> W is linear if for every x, y ∈ V and scalar c, it satisfies: 			Additivity: T(x+y) = T(x) + T(y) 			Homogeneity: T(cx) = cT(x) 
+3	Determinant
+		Row Reduction ( to find the product of diagonal of triangular matrix )  		Cofactor Expansion 			1. choose any row or column with most 0s
+			2. det(A) = the sum of (each element in the row/col * its cofactor) 					cofactor: Cij(A) = (-1)^(i+j) * det(matrix without i and j row, col) 		 for 2x2		ad-bc 		 for 3x3	cross product 
+	explicit formulas for matrix inverse
+			adjugate: adj(A) = [Cji (A)]		(notice it’s ji, not ij)
+			cofactor: Cij(A) = (-1)^(i+j) * det(matrix without i and j row, col)
+			A^-1 = 1/det(A) *adj(A)
+			Ex:
+				| 1 2 3  |^ -1 							| + |56/80| -  |23/80| + |23/56| | 				| 4 5 6 |			 = 1/(det A)   *	|  - |46/70| + |13/70|  -  |13/46| |
+				| 7 8 0 |									| + |45/78| -  |12/78|  + |12/45| |
+
+		solution of linear system using determinants
+			Cramer’s rule
+				Ax = b		->		A^-1b
+				xi = det[Ab]/detA
+				Ex:
+					| 1 2 3  |		| x1 |		| -1 |
+					| 4 5 6 | *	| x2 | = 	| -1 |
+					| 7 8 9 |		| x3 |		| -1 | 									| 1 2 -1  |	 /		| 1 2 3  |
+					x3 =   det 	| 4 5 -1 |	/ det	| 4 5 6 |
+									| 7 8 -1 |   /		| 7 8 0 | 
+	eigen-values/eigenvectors 		solve for λ in ‘det(A-λ) = 0’		(solution to λs are the eigenvalues) 		for each eigenvalue, solve ‘(A-λI)x = 0’		(solution to vector xs are the eigenvectors) 
+	diagonalization
+		A = PDP^-1 			P has eigenvetors in columns
+			D has eigenvalues in the diagonal
+5	R^n
+	span 		example:
+			Determine if the vectors v1 = (1, 2) and v2 = (3, 1) span R^2 			express a general vector (x, y, z) in R^3 as a linear combination of v1 and v2 				x = 1a + 4b 				y = 2a + 5b 				z = 3a + 6b 				1b 4b
+	subspace 		show that for every u, v ∈ H and scalar c, 			u+v ∈ H 			cu ∈ H 
+	linearly independent 		basis = 0 with only 1 solution (Cs being all 0s) 
+	dimension 		number of vectors in its basis
+
+	rank of matrix 		number of leading ones
+
+	Number of free variables = number of columns - rank
+		which means dim(nullspace(A) = number of columns without leading one
+
+	Rank-Nullity theorem 		for any linear transformation T : V -> W
+		Rank(T) + Nullity(T) = dim(V)
+
+	eigen-space 		for a given eigen value, its eigenspace is the set of all vectors v that satisfy (A-λI)v = 0.
+		including all the eigenvectors of λ and the zero vector
+
+	null space 		set of all solutions to Ax = 0  	image space 		T : R3 -> R2			image space would be T(R3) 		Au = v 			u in R3, v in R2
+			A is transfromation matrix 		set of all vectors that can be written as Ax for some x. 		It’s the column space of A. 			(meaning it consists of all linear combinations of the columns of A)
+
+6	Abstract Vectorspaces
+		a set with two operations
+			vector addition and scalar multiplication
+		that satisfy the vector space axioms 		To check:
+			1 * u = u for all u ∈ V				multiplicative identity
+			there’s 0 ∈ V, that u + 0 = u	additive identity
+			u + v ∈ V								closed under addition 			cu ∈ V									closed under scalar multiplication 			u+ v = u + v							communative
+			(u + v) + w = u + (v + w)		associative 			(ab)u = a(bu)
+			any u ∈ V, there’s w ∈ V that u + w = 0		inverse
+			a(u + w) = au + aw				distributive
+			(a+b)u = au + bu					distributive
+	repeat of span, subspace, lin indep, dim 
+	finite dimention vector space <-> R^n 		Every finite-dimensional vector space can be represented in terms of R^n
+ 
+7	Lin Transf 		T : V -> W, that’s closed under v+ and c*
+		to check: 			show that it’s closed under v+ and c* 
+	Kernel 		set of all vectors in V that map to the zero vector in W 			find it by solving T(x) = 0  	Image 		set of all vectors in W that are the image of at least one vector in V 			find it by determining the ouput of T for each basis vector in V 
+	onto, one-to-one
+	isomorphism <-> invertible
+	composition 		f(g(x)) 		composition of two linear transformations is also linear
+			If T : U -> V and S : V -> W,
+			then S∘T : U -> W is defined by 			(S∘T)(x) = S(T(x)) 		
+	
+9	Matrix Associated to Linear transformation
+	1. choose a basis for the domain and codomain
+	2. apply the linear transformation to each basis vector of the domain
+	3. express the image of each basis vector as a linear combination of the codomain’s basis
+	4. the coefficients of these combinations form the columns of the matrix
+
+3.5 Linear Diff Eq Sys
+	1. X’ = AX
+		where X is vector with variables 		so A is just matrix with the coefficient of equataions
+	2. eigenvalues/vectors of A
+	3. sum of c1e^(eigenvalue * t) * [eigenvector] + c2e^(eigen…. + … +
+
+	Euler’s Fomula 		e^(ix) = cosx + isinx	
+		e^(ix) = cosx - isinx
+
+6 Homogeneous Diff Eqs 	1. replace y^n to λ^n
+					y is 1
+	2. solve for λ (find eigenvalue)
+	3. form the general solution
+		resulted with different roots:
+			y(t) = c1e^(λ1t) + c2e(λ2t) 		resulted with repeated roots:
+			y(t) = (c1 + c2t)e^(λt) 		complex roots:
+			y(t) = e^(αt)(c1cos(βt) + c2sin(βt)) 				where λ = α ± iβ  	if matrix A is diagonalizable 		1. introduce A = PDP^1 		2. introduce G’(t) = D*G(T) 		3. G(t) = sum of c1e^(eigenvalue * t) * [eigenvector] + c2e^(eigen…. + … +
+		4. F(t) = P*G(t)
+	
+	homogeneous in Linear Algebra
+		a1x1 + a2x2 +… + anxn = 0
+	homogeneous means in diff eq
+		a(x)y’’ + b(x)y’ + c(x)y = 0
+
+Equivalent in A be an m x n matrix and TA : Rn-> Rm
+	isomorphism (bijection) 		invertible (RREF is identity matrix) 	
+	Onto (surjective)
+		RREF has leading one in every row 			1 0 0
+			0 1 0 		Rank(A) = dim(Rm) 		The column space (image space) of A is R^m 		For every b ∈ R^m, the linear system Ax = b is consistent (at least 1 solution)
+ 	One-to-One (injective)
+		RREF has leading one in every column
+			1 0
+			0 1
+			0 0
+		Rank(A) = dim(Rn)
+			nullity(A) = 0
+				(no free variables)
+		If b ∈ R^m such that Ax = b for some x ∈ R^n, then x is unique
+			Ax = Ay => x = y
+			x != y	=> Ax != Ay
+		 
+	

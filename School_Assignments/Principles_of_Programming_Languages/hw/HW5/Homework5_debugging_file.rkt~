@@ -1,0 +1,78 @@
+#lang racket
+
+(define (rev_list alist)
+  (letrec ((helper (lambda (list1 list2)
+                     (if (null? list1) list2
+                         (helper (cdr list1) (cons (car list1) list2))))))(helper alist '())))
+
+(define (rev_poly apoly)
+  (letrec ((helper (lambda (poly1 poly2)
+                     (if (null? poly1) poly2
+                         (helper (cdr poly1) (cons (car poly1) poly2))))))(helper apoly '())))
+
+(define (reduce_zero alist)
+  (if (or (null? alist) (not (= 0 (car alist)))) alist
+      (reduce_zero (cdr alist))))
+
+(define (lists_add_helper alist blist)
+    (if (null? alist) blist
+      (if (null? blist) alist
+          (cons (+ (car alist) (car blist)) (lists_add_helper (cdr alist) (cdr blist))))))
+
+(lists_add_helper '() '(0 1 2 3 0))
+
+(define (list_add alist blist)
+  (let ((result (lists_add_helper alist blist)))
+    (rev_list (reduce_zero (rev_list result)))))
+
+(list_add '() '(0 1 2 3 0))
+
+(define (reduce_empty_list apoly)
+  (if (or (null? apoly) (not (null? (car apoly)))) apoly
+      (reduce_empty_list (cdr apoly))))
+
+(reduce_empty_list '(() (1 1 1) ()))
+
+(define (poly_add_helper apoly bpoly)
+  (if (null? apoly) bpoly
+      (if (null? bpoly) apoly
+          (cons (list_add (car apoly) (car bpoly)) (poly_add_helper (cdr apoly) (cdr bpoly))))))
+
+(poly_add_helper '((1 1 1)) '((2 2 2)))
+
+(poly_add_helper '((1 1 1) () ) '((2 2 2) (1 2)))
+
+(define (poly_add apoly bpoly)
+  (let ((result (poly_add_helper apoly bpoly)))
+    (rev_poly (reduce_empty_list (rev_poly result)))))
+
+(poly_add '( (1 -1) (1 2 3) () (3)) '((-1 1) (-1 2) (3)))
+
+
+(define (lists_sub_helper alist blist)
+  (if (null? alist) (map - blist)
+      (if (null? blist) alist
+          (cons (- (car alist) (car blist)) (lists_sub_helper (cdr alist) (cdr blist))))))
+
+(lists_sub_helper '() '(1 1 1))
+
+(define (list_sub alist blist)
+  (let ((result (lists_sub_helper alist blist)))
+    (rev_list (reduce_zero (rev_list result)))))
+
+(list_sub '(0 2 2 2 0) '(0 1 1 1 0))
+
+
+(define (poly_sub_helper apoly bpoly)
+  (if (null? apoly) (map (lambda (x) (map - x)) bpoly)
+      (if (null? bpoly) apoly
+          (cons (list_sub (car apoly) (car bpoly)) (poly_sub_helper (cdr apoly) (cdr bpoly))))))
+
+(poly_sub_helper '(() () ()) '(() (1 1 1) ()))
+
+(define (poly_sub apoly bpoly)
+  (let ((result (poly_sub_helper apoly bpoly)))
+    (rev_poly (reduce_empty_list (rev_poly result)))))
+
+(poly_sub '(() () ()) '(() (1 1 1) ()))
+

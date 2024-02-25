@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class InputAndOutput {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String vacationPlace;
+
+		System.out.println("Enter your favorite vacation place");
+		
+		vacationPlace = input.nextLine(); 
+		
+		System.out.printf("%s is a good place for a vacation!", vacationPlace);
+
+		
+		
+	}
+}

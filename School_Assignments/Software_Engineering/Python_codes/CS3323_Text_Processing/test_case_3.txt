@@ -1,0 +1,7 @@
+123456789 John Doe Ninety-Five E
+ABCEDFGHI Jane Smith 88 L
+000000001 InvalidName 92 E
+12312312 Jane Doe 75 L
+456456456 Baby Yoda 65 E
+789789789 Luke Skywalker 55 L
+123456789 Leia Organa 85 E

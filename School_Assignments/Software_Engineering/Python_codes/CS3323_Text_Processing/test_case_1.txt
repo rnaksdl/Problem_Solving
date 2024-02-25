@@ -1,0 +1,7 @@
+123456789 John Doe 95 E
+987654321 Jane Smith 88 L
+192837465 John Smith 92 E
+123123123 Jane Doe 75 L
+456456456 Baby Yoda 65 E
+789789789 Luke Skywalker 55 L
+654321789 Leia Organa 85 E
