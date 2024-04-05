@@ -17,3 +17,14 @@ class Solution1:
             else:
                 length += 1
         return length
+    
+class Solution2:
+    def lengthOfLastWord(self, s: str) -> int:
+        length = 0
+        last_word_met = False
+        for char in reversed(s) : 
+            if char != " ":
+                length += 1
+                last_word_met = True
+            if char == " " and last_word_met == True:
+                return length
