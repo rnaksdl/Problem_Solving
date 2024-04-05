@@ -5,9 +5,9 @@ Given a string s consisting of words and spaces, return the length of the last w
 A word is a maximal substring consisting of non-space characters only.
 '''
 
-# 8:06 start set up
-# 8:11 start solving
+# took about 30 minutes to setup, attempt in 2 different ways, and check with other's solutions
 
+# I honestly didn't read the description carefully and I didn't think of s ending in spaces..
 class Solution1:
     def lengthOfLastWord(self, s: str) -> int:
         length = 0
@@ -17,8 +17,12 @@ class Solution1:
             else:
                 length += 1
         return length
-
     
+solution1 = Solution1()
+print(solution1.lengthOfLastWord("   fly me   to   the moon  ") == 4)
+
+
+# So I came up with this approach, which loops through s backwards and returns length when the word ends.
 class Solution2:
     def lengthOfLastWord(self, s: str) -> int:
         length = 0
@@ -34,8 +38,11 @@ class Solution2:
 Runtime: 38 ms, faster than 31.74% of Python3 online submissions for Length of Last Word.
 Memory Usage: 16.4 MB, less than 98.65% of Python3 online submissions for Length of Last Word.
 '''
+solution2 = Solution2()
+print(solution2.lengthOfLastWord("   fly me   to   the moon  ") == 4)
 
 
+# this is other's solution which is very similar to my approach, but using while loop, so it doesn't need "last_word_met = False" part.
 class Solution3:
     def lengthOfLastWord(self, s: str) -> int:
         length = 0
@@ -50,3 +57,5 @@ class Solution3:
 Runtime: 42 ms, faster than 9.97% of Python3 online submissions for Length of Last Word.
 Memory Usage: 16.6 MB, less than 27.02% of Python3 online submissions for Length of Last Word.
 '''
+solution3 = Solution3()
+print(solution3.lengthOfLastWord("   fly me   to   the moon  ") == 4)
