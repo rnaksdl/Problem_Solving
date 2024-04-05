@@ -22,9 +22,10 @@ class Solution2:
     def lengthOfLastWord(self, s: str) -> int:
         length = 0
         last_word_met = False
-        for char in reversed(s) : 
-            if char != " ":
+        for i in range(len(s)-1, -1, -1):
+            if s[i] != " ":
                 length += 1
                 last_word_met = True
-            if char == " " and last_word_met == True:
+            elif last_word_met:
                 return length
+        return length
