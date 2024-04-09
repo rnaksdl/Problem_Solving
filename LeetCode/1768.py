@@ -69,11 +69,22 @@ class Others:
         
         while i < len(word1) and j < len(word2):
             result.append(word1[i])
-            result.append(word1[i])
+            result.append(word2[i])
             i += 1
             j += 1
         result.append(word1[i:])
-        result.append(word1[j:])
+        result.append(word2[j:])
 
 
         return "".join(result)
+
+    
+
+attempt1 = Attempt1()
+print(attempt1.mergeAlternately("ab", "pqrs") == "apbqrs")
+
+attempt2 = Attempt2()
+print(attempt2.mergeAlternately("abcd", "pq") == "apbqcd")
+
+others = Others()
+print(others.mergeAlternately("abcd", "pq") == "apbqcd")
