@@ -6,6 +6,8 @@ Write a function to find the longest common prefix string amongst an array of st
 If there is no common prefix, return an empty string "".
 '''
 
+from typing import List
+
 '''
 class Solution1:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -30,4 +32,16 @@ I realized that I misunderstood the problem midway of attempt1.
 We are looking for 'COMMON' prefix, which means all strings should have some same prefix.
 '''
 
-
+class Solution2:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        
+        commonPrefix = ""
+        
+        strings = sorted(strs)
+        
+        for i in range(len(strings[0])):
+            if strings[0][i] == strings[-1][i]:
+                commonPrefix += strings[0][i]
+            else:
+                return commonPrefix
+            
