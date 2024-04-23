@@ -53,12 +53,31 @@ attempt2 doesn't catch the edge case of the list being empty
 
 class Solution3:
     def longestCommonPrefix(self, strs: List[str]) -> str:
+        # initiallize the prefix to ""
         commonPrefix = ""
+        
+        # sort the stirngs list
         strings = sorted(strs)
+
+        # store first & last strings for better read
         firstS=strings[0]
         lastS=strings[-1]
+
+        """
+        find which one shorter between first & last stings
+        iterate from 0 to the length of shorter string
+        """
         for i in range(min(len(firstS),len(lastS))):
+
+            # if first sting's char doesn't match last sting's char
             if(firstS[i]!=lastS[i]):
+            
+                # return the commonPrefix
                 return commonPrefix
+            
+            # if it does, update the commonPrefix
             commonPrefix += firstS[i]
+        
+        # I think that this line will execute when the two stings are the same
+        # ther might be more case
         return commonPrefix
