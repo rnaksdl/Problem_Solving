@@ -44,4 +44,21 @@ class Solution2:
                 commonPrefix += strings[0][i]
             else:
                 return commonPrefix
-            
+
+"""
+attempt2 doesn't catch the edge case of the list being empty
+"""
+
+
+
+class Solution3:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        commonPrefix = ""
+        strings = sorted(strs)
+        firstS=strings[0]
+        lastS=strings[-1]
+        for i in range(min(len(firstS),len(lastS))):
+            if(firstS[i]!=lastS[i]):
+                return commonPrefix
+            commonPrefix += firstS[i]
+        return commonPrefix
