@@ -81,3 +81,6 @@ class Solution3:
         # I think that this line will execute when the two stings are the same
         # ther might be more case
         return commonPrefix
+    
+solution3 = Solution3()
+print(solution3.longestCommonPrefix(["flower","flow","flight"]) == "fl")
