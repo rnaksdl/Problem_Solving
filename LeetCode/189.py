@@ -4,6 +4,9 @@ Given an integer array nums, rotate the array to the right by k steps, where k i
 '''
 
 
+from typing import List
+
+
 class Solution1:
     def rotate(self, nums: List[int], k: int) -> None:
         """
@@ -45,6 +48,16 @@ class Solution2:
 
 
 
+
+'''
+This one works, BUT it isn't so efficient
+it is very easy to understand this logic tho
+1234567, 3
+    append first 4 int
+        12345671234
+    delete first 4 int
+        5671234
+'''
 class Solution3:
     def rotate(self, nums: List[int], k: int) -> None:
         """
