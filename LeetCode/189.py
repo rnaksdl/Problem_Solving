@@ -74,3 +74,23 @@ class Solution3:
             
         for i in range(1, k+1):
             del nums[-1]
+
+
+'''
+still not so fast
+but less memory usage
+'''
+class Solution4:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        
+        """
+        k is the rotate point
+        which means first element goes to k
+        """
+        
+        for i in range(1, k+1):
+            nums.insert(0, nums[-1])
+            del nums[-1]
