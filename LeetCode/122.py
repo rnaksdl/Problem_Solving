@@ -58,3 +58,33 @@ since we check if the buy is 0 as we are checking if we didn't buy
 when we actually buy at 0
 the algo assumes we didn't buy
 '''
+
+
+    
+
+class Solution3:
+    def maxProfit(self, prices: List[int]) -> int:
+        
+        bought = False
+        buy = 0
+        sell = 0
+        profit = 0
+        
+        for i in range(1, len(prices)):
+            if not bought and prices[i-1] < prices[i]:
+                buy = prices[i-1]
+                bought = True
+                
+            if bought and prices[i-1] > prices [i]:
+                sell = prices[i-1]
+                profit += sell - buy
+                buy = 0
+                bought = False
+                
+            if bought and i == len(prices) - 1:
+                sell = prices[i]
+                profit += sell - buy
+                buy = 0
+                bought = False
+                
+        return profit
