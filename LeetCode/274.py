@@ -45,3 +45,16 @@ class Solution2:
                 break
         
         return h_index
+'''
+this approach was really outside of the box
+I need to think about sorting in decending order..
+
+SO the way this solutions works is beautifully simple.
+1. sort the array in decending order
+2. initialize h index to 0
+3. iterate thru the array
+    1. if citation is greater than position in array (i + 1),
+        1. set h index to the position in array (i + 1)
+    2. else break the loop, since the numbers will be keep getting smaller anyway.
+4. return the array.
+'''
