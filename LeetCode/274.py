@@ -11,6 +11,7 @@ that have each been cited at least h times.
 '''
 
 
+from typing import List
 
 
 class Solution1:
@@ -28,3 +29,6 @@ class Solution1:
             count = 0
                 
         return result
+'''
+I could not come up with a working solution
+'''
