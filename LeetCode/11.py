@@ -10,3 +10,35 @@ Return the maximum amount of water a container can store.
 Notice that you may not slant the container.
 '''
 
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        
+        p1 = 0
+        p2 = len(height) - 1
+        
+        maxWater = 0
+        water = 0
+        minHeight = 0
+        
+        while p1 < p2:
+            
+            if height[p1] < height[p2]:
+                minHeight = height[p1]
+            else:
+                minHeight = height[p2]
+            
+            water = minHeight * (p2 - p1)
+            
+            if water > maxWater:
+                maxWater = water
+            if height[p1] < height[p2]:
+                p1 += 1
+            else:
+                p2 -= 1
+                
+        return maxWater
+    
+'''
+Had to get some tips and alot of thinking but got it!
+'''
