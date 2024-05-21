@@ -22,3 +22,8 @@ class Solution:
                 p1 += 1
             if numbers[p1] + numbers[p2] > target:
                 p2 -= 1
+
+
+'''
+I UNDERSTAND TWO POINTERS NOW!!!!!
+'''
