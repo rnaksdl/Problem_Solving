@@ -39,3 +39,33 @@ true
 Expected
 false
 '''
+
+
+class Solution1:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        
+        counter = {}
+        
+        for char in magazine:
+            if char in counter:
+                counter[char] += 1
+            else:
+                counter[char] = 1
+                
+        for char in ransomNote:
+            
+            if char not in counter:
+                return False
+            
+            if char in counter:
+                counter[char] -= 1
+                if counter[char] == 0:
+                    del counter[char]
+            
+
+            
+        return True
+
+'''
+it was just a syntax error
+'''
