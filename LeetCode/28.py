@@ -31,3 +31,27 @@ over compelecated for sure..
 '''
 
 
+class Attempt2:
+    def strStr(self, haystack: str, needle: str) -> int:
+        
+        progress = 0
+        i = len(haystack) - 1
+        j = len(needle) - 1
+        
+        while i > 0:
+            if haystack[i] == needle[j]:
+                progress += 1
+                if progress == len(needle):
+                    return i
+                continue
+            else:
+                progress = 0
+            
+            i -= 1
+            j -= 1
+            
+        return -1
+'''
+ugh I should not reverse it,
+since I need to find the first occurrence
+'''
