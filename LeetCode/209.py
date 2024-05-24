@@ -37,3 +37,28 @@ several issues here
 I need to study sliding window a little more
 '''
 
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        
+        # initialize L and total to 0
+        L = 0
+        total = 0
+        # initialize length to an invalid length
+        length = len(nums) + 1
+        
+        # iterate Right pointer
+        for R in range(len(nums)):
+
+            # calculate total
+            total += nums[R]
+            
+            # moving Left pointer
+            while total >= target:
+                if length > R - L + 1:
+                    length = R - L + 1
+                total -= nums[L]
+                L += 1
+        
+        # return valid length
+        return length if length <= len(nums) else 0
