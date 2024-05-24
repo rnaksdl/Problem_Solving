@@ -32,3 +32,8 @@ class Attempt:
         
         return length
                 
+'''
+several issues here
+I need to study sliding window a little more
+'''
+
