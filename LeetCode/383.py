@@ -68,4 +68,22 @@ class Solution1:
 
 '''
 it was just a syntax error
+
+Runtime: 58 ms, faster than 53.74% of Python3 online submissions for Ransom Note.
+Memory Usage: 16.7 MB, less than 85.05% of Python3 online submissions for Ransom Note.
+'''
+
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        
+        # Create Counter objects for the ransomNote and magazine strings
+        note, mag = Counter(ransomNote), Counter(magazine)
+        
+        # Check if the intersection of note and mag Counter objects is equal to note Counter object
+        # If it is, it means that all the letters in ransomNote can be formed using the letters in magazine
+        if note & mag == note: return True
+        return False
+'''
+Runtime: 55 ms, faster than 63.11% of Python3 online submissions for Ransom Note.
+Memory Usage: 16.8 MB, less than 46.09% of Python3 online submissions for Ransom Note.
 '''
