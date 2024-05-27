@@ -44,8 +44,9 @@ class Solution:
         # initialize L and total to 0
         L = 0
         total = 0
-        # initialize length to an invalid length
-        length = len(nums) + 1
+
+        # initialize minLength to an invalid length
+        minLength = len(nums) + 1
         
         # iterate Right pointer
         for R in range(len(nums)):
@@ -55,10 +56,19 @@ class Solution:
             
             # moving Left pointer
             while total >= target:
-                if length > R - L + 1:
-                    length = R - L + 1
+                
+                # calc current window length
+                currentLength = R - L + 1
+
+                # find minimum length
+                if minLength > currentLength:
+                    minLength = currentLength
+
+                # reassign total
                 total -= nums[L]
+
+                # increment L
                 L += 1
         
-        # return valid length
-        return length if length <= len(nums) else 0
+        # return minLength. and 0 instead of invalid length
+        return minLength if minLength <= len(nums) else 0
