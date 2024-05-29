@@ -38,19 +38,30 @@ literally slide around the windoow according to the description
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
 
+        # init window as set
         window = set()
 
+        # init Left end of window
         L = 0
 
+        # iterate nums
         for R in range(len(nums)):
-
+            
+            # window size should be <= k
             if R - L > k:
+                
+                # so remove first iten in window
                 window.remove(nums[L])
+
+                # and increment Left end of window
                 L += 1
 
+            # if new item is in window, return True
             if nums[R] in window:
                 return True
 
+            # add new item to window
             window.add(nums[R])
         
+        # if it never returned True, return False
         return False
