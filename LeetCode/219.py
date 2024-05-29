@@ -29,4 +29,28 @@ class Attempt:
     
 '''
 I'm still not understanding how sliding window works
+
+I studied a bit,
+and what I'm understanding so far is that
+literally slide around the windoow according to the description
 '''
+
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+
+        window = set()
+
+        L = 0
+
+        for R in range(len(nums)):
+
+            if R - L > k:
+                window.remove(nums[L])
+                L += 1
+
+            if nums[R] in window:
+                return True
+
+            window.add(nums[R])
+        
+        return False
