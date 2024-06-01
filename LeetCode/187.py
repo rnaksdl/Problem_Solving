@@ -27,3 +27,18 @@ class Attempt:
 '''
 result must be a set too
 '''
+
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        
+        sequences = set()
+        result = set()
+
+        for l in range(len(s) - 9):
+            currentSequence = s[l:l+10]
+            if currentSequence in sequences:
+                result.add(currentSequence)
+
+            sequences.add(currentSequence)
+
+        return result
