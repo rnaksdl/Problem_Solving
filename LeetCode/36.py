@@ -13,29 +13,18 @@ Only the filled cells need to be validated according to the mentioned rules.
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        rows = [set() for _ in range(9)]
-        cols = [set() for _ in range(9)]
-        subgrids = [[set() for _  in range(3)] for _ in range(3)]
+        rows = collections.defaultdict(set)
+        cols = collections.defaultdict(set)
+        sub_boxes = collections.defaultdict(set)
 
-        for i in range(9):
-            for j in range(9):
-                num = board[i][j]
-
-                if num == '.':
+        for row in range(9):
+            for col in range(9):
+                if board[row][col] == ".":
                     continue
-
-                if num in rows[i]:
+                if board[row][col] in rows[row] or board[row][col] in cols[col] or board[row][col] in sub_boxes[(row // 3, col // 3)]:
                     return False
-                rows[i].add(num)
-
-                if num in cols[j]:
-                    return False
-                cols[j].add(num)
-
-                if num in subgrids[i//3][j//3]:
-                    return False
-                subgrids[i//3][j//3].add(num)
-
+                rows[row].add(board[row][col])
+                cols[col].add(board[row][col])
+                sub_boxes[(row // 3, col // 3)].add(board[row][col])
+            
         return True
-
-  
