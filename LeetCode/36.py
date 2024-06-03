@@ -11,6 +11,9 @@ A Sudoku board (partially filled) could be valid but is not necessarily solvable
 Only the filled cells need to be validated according to the mentioned rules.
 '''
 
+import collections
+
+
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rows = collections.defaultdict(set)
@@ -28,3 +31,10 @@ class Solution:
                 sub_boxes[(row // 3, col // 3)].add(board[row][col])
             
         return True
+
+'''
+collections.defaultdict(set) is hash set
+
+sub_boxes keys are represented like this sub_boxes[(row // 3, col // 3)]
+    since there are 3 rows of boxes and 3 cols of boxes
+'''
