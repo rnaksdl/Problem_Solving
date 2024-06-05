@@ -28,3 +28,9 @@ class Attempt:
                 matrix[1][0] = matrix[-1][1]
                 matrix[-1][1] = matrix[-2][-1]
                 matrix[-2][-1] = temp
+'''
+this only works on matrix that are smaller than 3x3
+What I'm goint to change is,
+    I'm gonna swap the whole row or col at once.
+'''
+
