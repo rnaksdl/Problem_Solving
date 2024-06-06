@@ -28,9 +28,29 @@ class Attempt:
                 matrix[1][0] = matrix[-1][1]
                 matrix[-1][1] = matrix[-2][-1]
                 matrix[-2][-1] = temp
+
 '''
 this only works on matrix that are smaller than 3x3
 What I'm goint to change is,
     I'm gonna swap the whole row or col at once.
 '''
 
+class Solution:
+    def rotate(self, matrix):
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n = len(matrix)
+        
+        # Transpose the matrix
+        for i in range(n):
+            for j in range(i, n):
+                matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
+        
+        # Reverse each row
+        for i in range(n):
+            matrix[i] = matrix[i][::-1]
+'''
+This solution is just.....
+utterly and completely just beautiful...
+ '''
