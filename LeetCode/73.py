@@ -27,3 +27,28 @@ class Attempt1:
             for j in range(len(matrix[i])):
                 if i in rowWithZero and j in colWithZero:
                     matrix[i][j] = 0
+
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        
+        # init 2 sets to store which row or col had zero(s)
+        rowWithZero = set()
+        colWithZero = set()
+
+        # iterate through the whole matrix and find 0's
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                if matrix[i][j] == 0:
+                    rowWithZero.add(i)
+                    colWithZero.add(j)
+                    print(rowWithZero)
+                    print(colWithZero)
+
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                if i in rowWithZero or j in colWithZero:
+                    matrix[i][j] = 0
