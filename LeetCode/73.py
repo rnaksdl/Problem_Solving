@@ -42,13 +42,16 @@ class Solution:
         # iterate through the whole matrix and find 0's
         for i in range(len(matrix)):
             for j in range(len(matrix[i])):
+
+                # when you find a 0, add the indeces of row and col to each sets
                 if matrix[i][j] == 0:
                     rowWithZero.add(i)
                     colWithZero.add(j)
-                    print(rowWithZero)
-                    print(colWithZero)
 
+        # iterate throught the whole matrix
         for i in range(len(matrix)):
             for j in range(len(matrix[i])):
+
+                # if you're at a row or col with zero, change the value to 0
                 if i in rowWithZero or j in colWithZero:
                     matrix[i][j] = 0
