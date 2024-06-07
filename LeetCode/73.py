@@ -27,6 +27,13 @@ class Attempt1:
             for j in range(len(matrix[i])):
                 if i in rowWithZero and j in colWithZero:
                     matrix[i][j] = 0
+'''
+if i in rowWithZero and j in colWithZero:
+
+in this line "and" should have been "or"
+since we want to change the value when its lying at either row OR col with zero(s).
+using "and" would be changing just the 0(s) to 0(s) again.
+'''
 
 
 class Solution:
