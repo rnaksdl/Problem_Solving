@@ -29,6 +29,8 @@ class Attempt1:
             
             dictionary[s[i]] = t[i]
 
+        return True
+
 
 class Attempt2:
     def isIsomorphic(self, s: str, t: str) -> bool:
@@ -46,6 +48,8 @@ class Attempt2:
                 return False
             
             charDict[s[i]] = t[i]
+
+        return True
 '''
 it should go both ways
 '''
