@@ -28,3 +28,21 @@ class Attempt1:
                 return False
             
             dictionary[s[i]] = t[i]
+
+
+class Attempt2:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        
+        # if not s or not t:
+        #     return False
+
+        # if len(s) != len(t):
+        #     return False
+
+        charDict = {}
+        
+        for i in range(len(s)):
+            if s[i] in charDict and charDict.get(s[i]) != t[i]:
+                return False
+            
+            charDict[s[i]] = t[i]
