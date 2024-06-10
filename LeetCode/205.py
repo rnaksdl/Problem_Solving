@@ -46,3 +46,7 @@ class Attempt2:
                 return False
             
             charDict[s[i]] = t[i]
+'''
+it should go both ways
+'''
+
