@@ -10,3 +10,21 @@ while preserving the order of characters.
 No two characters may map to the same character,
 but a character may map to itself.
 '''
+
+
+class Attempt1:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        
+        # if not s or not t:
+        #     return False
+
+        # if len(s) != len(t):
+        #     return False
+
+        dictionary = {}
+        
+        for i in range(len(s)):
+            if dictionary.get(s[i]) != t[i]:
+                return False
+            
+            dictionary[s[i]] = t[i]
