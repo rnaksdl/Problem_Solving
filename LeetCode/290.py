@@ -8,7 +8,7 @@ such that there is a bijection between a letter in pattern
 and a non-empty word in s.
 '''
 
-class Attempt:
+class Attempt1:
     def wordPattern(self, pattern: str, s: str) -> bool:
         
         counter = 0
@@ -29,3 +29,22 @@ class Attempt:
 I'm definitely over thinking,
 I need to get used to using two or more hashmaps.
 '''
+
+class Attempt2:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        
+        counter = 0
+        word = ""
+        w2p = {}
+        p2w = {}
+
+        for char in s:
+            if char == " ":
+                if word in w2p and w2p[word] != pattern[counter]:
+                    return False
+                if pattern[counter] in p2w and p2w[pattern[counter]] != word:
+                    return False
+                
+                counter += 1
+
+        return False
