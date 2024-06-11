@@ -48,3 +48,30 @@ class Attempt2:
                 counter += 1
 
         return False
+    
+
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        word = ""
+        w2p = {}
+        p2w = {}
+        counter = 0
+        s += ' '  # Add a space at the end to handle the last word
+
+        for char in s:
+            if char != " ":
+                word += char  # Build the word character by character
+            else:
+                if counter >= len(pattern):  # Check if there are more words than pattern characters
+                    return False
+                if word in w2p and w2p[word] != pattern[counter]:
+                    return False
+                if pattern[counter] in p2w and p2w[pattern[counter]] != word:
+                    return False
+                w2p[word] = pattern[counter]
+                p2w[pattern[counter]] = word
+                word = ""  # Reset word for the next iteration
+                counter += 1  # Move to the next pattern character
+
+        # After processing all characters, check if all pattern characters were used
+        return counter == len(pattern)
