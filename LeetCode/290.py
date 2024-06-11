@@ -25,3 +25,7 @@ class Attempt:
                 word = ""
         
         return True
+'''
+I'm definitely over thinking,
+I need to get used to using two or more hashmaps.
+'''
