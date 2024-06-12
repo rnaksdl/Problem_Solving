@@ -50,7 +50,7 @@ class Attempt2:
         return False
     
 
-class Solution:
+class Solution1:
     def wordPattern(self, pattern: str, s: str) -> bool:
         word = ""
         w2p = {}
@@ -90,7 +90,7 @@ Beats
 of users with Python3
 '''
 
-class Solution:
+class Solution2:
     def wordPattern(self, pattern: str, s: str) -> bool:
 
         # parse string
