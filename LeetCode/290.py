@@ -135,3 +135,9 @@ Beats
 88.24%
 of users with Python3
 '''
+
+
+'''
+solution2 is simpler to read.
+but I like my solution 1, since it uses less built in functions
+'''
