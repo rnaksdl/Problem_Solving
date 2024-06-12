@@ -121,3 +121,17 @@ class Solution:
 
         return True
 
+'''
+Runtime
+29
+ms
+Beats
+88.26%
+of users with Python3
+Memory
+16.49
+MB
+Beats
+88.24%
+of users with Python3
+'''
