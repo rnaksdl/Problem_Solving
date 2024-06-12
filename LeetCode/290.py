@@ -75,3 +75,17 @@ class Solution:
 
         # After processing all characters, check if all pattern characters were used
         return counter == len(pattern)
+'''
+Runtime
+36
+ms
+Beats
+47.25%
+of users with Python3
+Memory
+16.36
+MB
+Beats
+98.78%
+of users with Python3
+'''
