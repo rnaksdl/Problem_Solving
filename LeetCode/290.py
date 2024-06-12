@@ -89,3 +89,35 @@ Beats
 98.78%
 of users with Python3
 '''
+
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+
+        # parse string
+        words = s.split(" ")
+
+        # check lengths
+        if len(pattern) != len(words):
+            return False
+        
+        # init two dicts
+        c2w = {}
+        w2c = {}
+
+        # iter both same time
+        for c, w in zip(pattern, words):
+
+            # check if c already exists and has same w
+            if c in c2w and c2w[c] != w:
+                return False
+            
+            # check if w already exists and has same c
+            if w in w2c and w2c[w] != c:
+                return False
+
+            # add w, c to each dicts
+            c2w[c] = w
+            w2c[w] = c
+
+        return True
+
