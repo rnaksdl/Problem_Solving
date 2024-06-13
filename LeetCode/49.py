@@ -8,3 +8,23 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 
 
 
+
+
+class Attempt:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        for word in strs:
+            sorted(word)
+
+        sorted(strs)
+
+        result = []
+        temp = []
+
+        for i in range(len(strs) - 1):
+            if strs[i] == strs[i - 1]:
+                temp.append
+'''
+I was lost in this one.
+'''
+
