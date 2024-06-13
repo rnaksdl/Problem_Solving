@@ -43,3 +43,8 @@ class Solution:
 
         return result.values()
 
+'''
+I don't think I would have been able to thought of this solution.
+My first attempt was close to be another solution tho.
+I'll study more about ord() and defualtdict()
+'''
