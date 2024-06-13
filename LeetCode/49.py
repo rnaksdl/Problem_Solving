@@ -6,10 +6,6 @@ Given an array of strings strs, group the anagrams together. You can return the 
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 '''
 
-
-
-
-
 class Attempt:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
@@ -27,4 +23,23 @@ class Attempt:
 '''
 I was lost in this one.
 '''
+
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        # init result hashmap
+        result = defaultdict(list)
+
+        # init 26 lists for a to z
+        for word in strs:
+            count = [0] * 26 
+
+            # map char to each indices
+            for char in word:
+                count[ord(char) - ord("a")] += 1
+
+            result[tuple(count)].append(word)
+
+        return result.values()
 
