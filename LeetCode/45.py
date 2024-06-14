@@ -34,3 +34,10 @@ class Solution:
             result += 1
 
         return result
+
+'''
+this is Greedy Algo
+BFS
+
+I NEED TO GET THIS BY HEART
+'''
