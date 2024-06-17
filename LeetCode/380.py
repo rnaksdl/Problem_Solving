@@ -10,3 +10,39 @@ int getRandom() Returns a random element from the current set of elements (it's 
 You must implement the functions of the class such that each function works in average O(1) time complexity.
 '''
 
+class RandomizedSet:
+
+    def __init__(self):
+        self.numMap = {}
+        self.numList = []
+
+    def insert(self, val: int) -> bool:
+        result = val not in self.numMap
+
+        if result:
+            self.numMap[val] = len(self.numList)
+            self.numList.append(val)
+
+        return result
+
+    def remove(self, val: int) -> bool:
+        result = val in self.numMap
+        if result:
+            idx = self.numMap[val]
+            lastVal = self.numList[-1]
+            self.numList[idx] = lastVal
+            self.numList.pop()
+            self.numMap[lastVal] = idx
+            del self.numMap[val]
+
+        return result
+
+    def getRandom(self) -> int:
+        return random.choice(self.numList)
+
+
+# Your RandomizedSet object will be instantiated and called as such:
+# obj = RandomizedSet()
+# param_1 = obj.insert(val)
+# param_2 = obj.remove(val)
+# param_3 = obj.getRandom()
