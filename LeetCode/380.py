@@ -13,7 +13,10 @@ You must implement the functions of the class such that each function works in a
 class RandomizedSet:
 
     def __init__(self):
+
+        # init hashmap to handle duplicates
         self.numMap = {}
+        # init list to handle remove
         self.numList = []
 
     def insert(self, val: int) -> bool:
@@ -46,3 +49,7 @@ class RandomizedSet:
 # param_1 = obj.insert(val)
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
+
+'''
+I'm not 
+'''
