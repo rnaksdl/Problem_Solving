@@ -14,33 +14,54 @@ class RandomizedSet:
 
     def __init__(self):
 
-        # init hashmap to handle duplicates
+        # init hashmap to handle duplicates, insert, remove
         self.numMap = {}
-        # init list to handle remove
+        # init list to handle random
         self.numList = []
 
     def insert(self, val: int) -> bool:
-        result = val not in self.numMap
 
-        if result:
+        valNotInMap = val not in self.numMap
+
+        # if we don't have val
+        if valNotInMap:
+            # setting the val as the key and the length of the list as the value
             self.numMap[val] = len(self.numList)
+            # appending the val to the end of the list
             self.numList.append(val)
 
-        return result
+        return valNotInMap
 
     def remove(self, val: int) -> bool:
-        result = val in self.numMap
-        if result:
-            idx = self.numMap[val]
+
+        valInMap = val in self.numMap
+
+        # if we have val
+        if valInMap:
+
+            # setting index
+            index = self.numMap[val]
+
+            # setting lastVal
             lastVal = self.numList[-1]
-            self.numList[idx] = lastVal
+
+            # swap lastVal and val
+            self.numList[index] = lastVal
+
+            # pop the val (which is now at the end)
             self.numList.pop()
-            self.numMap[lastVal] = idx
+
+            # edit the lasVal value as the index
+            self.numMap[lastVal] = index
+
+            # delete the val
             del self.numMap[val]
 
-        return result
+        return valInMap
 
     def getRandom(self) -> int:
+
+        # this returns a random available index in a list
         return random.choice(self.numList)
 
 
