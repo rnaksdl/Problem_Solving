@@ -43,3 +43,20 @@ class Attempt2:
 
         return result
     
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+
+        result = [1]
+        val = 1
+        for i in range(len(nums) - 1):
+            result.append(val * nums[i])
+            val *= nums[i]
+
+        val = 1
+        for i in range(len(nums)-1, -1, -1):
+            result[i] *= val
+            val *= nums[i]
+
+        return result
+
