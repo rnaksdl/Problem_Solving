@@ -47,15 +47,29 @@ class Attempt2:
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
 
+        # init the array and val
         result = [1]
         val = 1
+
+        # forward
+        # inter array from first to sencond to last
         for i in range(len(nums) - 1):
+
+            # append updated value
             result.append(val * nums[i])
+            # update the value
             val *= nums[i]
 
+        # backwards
+        # reset val
         val = 1
-        for i in range(len(nums)-1, -1, -1):
+
+        # iter backwards from last to second
+        for i in range(len(nums) - 1, -1, -1):
+            
+            # update result array
             result[i] *= val
+            # update val
             val *= nums[i]
 
         return result
