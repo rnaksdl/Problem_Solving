@@ -91,3 +91,9 @@ class Solution2:
             postfix *= nums[i]
         
         return res
+
+'''
+I do like this solution, since it starts with set length array
+and usring prefix and postfix as the var name is very clear.
+operations in side the loop is basically the same, but it's clearer to me.
+'''
