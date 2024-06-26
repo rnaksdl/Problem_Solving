@@ -33,3 +33,31 @@ class Attempt1:
 '''
 I need to figure out why its index is off by one
 '''
+
+class Attempt2:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        
+        sum = 0
+        maxMargin = -999999999999
+        result = -1
+
+        for i in range(len(gas)):
+
+            margin = gas[i] - cost[i]
+
+            sum += margin
+
+            if maxMargin < margin:
+                maxMargin = margin
+                result = i
+
+
+        if sum >= 0 :
+
+            return result
+        else: return -1
+
+'''
+this works with the given test cases, but my assumption that if you start with the most gas possible, you'll be able to circle around from that spot,
+is a weak assumption..
+'''
