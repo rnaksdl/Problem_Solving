@@ -61,3 +61,32 @@ class Attempt2:
 this works with the given test cases, but my assumption that if you start with the most gas possible, you'll be able to circle around from that spot,
 is a weak assumption..
 '''
+
+
+class Attempt2:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        
+        result = -1
+        maxMarginToNext = -99999999999
+
+        for i in range(len(gas)):
+            if i != len(gas) - 1 :
+                margin = gas[i] - cost[i]
+
+                if margin > 0:
+                    marginToNext = margin + gas[i+1] - cost[i+1]
+                    if marginToNext > 0 and maxMarginToNext < marginToNext:
+                        maxMarginToNext = marginToNext
+                        result = i
+
+            else:
+                margin = gas[i] - cost[i]
+
+                if margin > 0:
+                    marginToNext = margin + gas[0] - cost[0]
+                    if marginToNext > 0 and maxMarginToNext < marginToNext:
+                        maxMarginToNext = marginToNext
+                        result = i
+
+        return result
+
