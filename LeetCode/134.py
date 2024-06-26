@@ -7,3 +7,25 @@ You have a car with an unlimited gas tank and it costs cost[i] of gas to travel 
 
 Given two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1. If there exists a solution, it is guaranteed to be unique
 '''
+
+
+class Attempt1:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        
+        sum = 0
+        maxMargin = -999999999999
+        result = -1
+
+        for i in range(len(gas)):
+
+            diff = gas[i] - cost[i]
+
+            sum += diff
+
+            if maxMargin < diff:
+                result = i
+
+
+        if sum >= 0 :
+            return result
+        else: return -1
