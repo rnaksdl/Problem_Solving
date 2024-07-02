@@ -35,3 +35,7 @@ class Attempt1:
         if len(stack) != 0:
             return False
         return True
+'''
+I'm close...
+I feel sick tho, so I can't think straight..
+'''
