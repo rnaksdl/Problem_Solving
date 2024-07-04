@@ -56,4 +56,7 @@ class Solution:
                 stack.append(c)
         
         return True if not stack else False
-        
+    
+'''
+even though this is an easy level problem, it's pretty confusing to me
+'''
