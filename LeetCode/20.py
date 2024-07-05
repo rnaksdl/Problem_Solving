@@ -43,20 +43,34 @@ I feel sick tho, so I can't think straight..
 
 class Solution:
     def isValid(self, s: str) -> bool:
+        # init stack
         stack = []
+
+        # init hash map
         closeToOpen = { ")" : "(", "]" : "[", "}" : "{" }
 
         for c in s:
+
+            # when we see closed one
             if c in closeToOpen:
+
+                # if stack is not empty and last ele is matching open one:
                 if stack and stack[-1] == closeToOpen [c]:
+
+                    # pop the stack
                     stack.pop()
+                
+                # if stack is empty and last ele is something else
                 else:
                     return False
+            
+            # when we see something else than clsoed
             else:
                 stack.append(c)
         
+        # return True if stack is empty 
         return True if not stack else False
     
 '''
-even though this is an easy level problem, it's pretty confusing to me
+even though this is an easy level problem, it was pretty confusing to me
 '''
