@@ -67,3 +67,6 @@ class Solution1:
                 num = num % val
         return res
 
+'''
+this solutino is more readable.
+'''
