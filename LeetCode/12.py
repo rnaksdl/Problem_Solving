@@ -68,6 +68,6 @@ class Solution1:
         return res
 
 '''
-this solutino is more readable.
+this solution is more readable.
 
 '''
