@@ -69,4 +69,5 @@ class Solution1:
 
 '''
 this solutino is more readable.
+
 '''
