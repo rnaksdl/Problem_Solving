@@ -37,4 +37,8 @@ class Solution1:
 
         return result
 
+'''
+first attempt!
+very slow tho..
+'''
 
