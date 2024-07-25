@@ -28,3 +28,8 @@ class Solution:
         
         return res
             
+
+'''
+I'm going to take a break.
+NO screens what so ever.
+'''
