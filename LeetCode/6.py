@@ -38,9 +38,3 @@ class Solution:
                     res += s[i + increment - 2 * r]
         
         return res
-            
-
-'''
-I'm going to take a break.
-NO screens what so ever.
-'''
