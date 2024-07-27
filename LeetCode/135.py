@@ -32,3 +32,8 @@ class Attempt1:
                     result += 1
 
         return result
+'''
+Children with a higher rating get more candies than their neighbors
+'''
+    
+
