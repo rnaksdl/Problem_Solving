@@ -11,3 +11,24 @@ Return the minimum number of candies you need to have to distribute the candies 
 '''
 
 
+class Attempt1:
+    def candy(self, ratings: List[int]) -> int:
+
+        result = 0
+
+        for i in range(len(ratings)):
+            result += 1
+
+            if i == 0:
+                if ratings[i] > ratings[i + 1]:
+                    result += 1
+
+            if i == len(ratings) - 1:
+                if ratings[i] > ratings[i - 1]:
+                    result += 1
+
+            if i > 0 and i < len(ratings)-1:
+                if ratings[i] > ratings[i - 1] or ratings[i] > ratings[i + 1]:
+                    result += 1
+
+        return result
