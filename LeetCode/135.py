@@ -40,14 +40,21 @@ Children with a higher rating get more candies than their neighbors
 class Solution:
     def candy(self, ratings: List[int]) -> int:
         
+        # init array with the length of ratings, filled with 1's
         arr = [1] * len(ratings)
         
+        # skip the first ele and iter
         for i in range(1, len(ratings)):
+            # if prev less than current
             if ratings[i - 1] < ratings[i]:
+                # update the arr value
                 arr[i] = arr[i - 1] + 1
 
+        # skip the last ele and iter backwards
         for i in range(len(ratings) - 2, -1, -1):
+            # if current greater than prev
             if ratings[i] > ratings[i + 1]:
+                # up date the arr value
                 arr[i] = max(arr[i], arr[i + 1] + 1)
 
         return sum(arr)
