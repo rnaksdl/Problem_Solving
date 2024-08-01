@@ -17,4 +17,8 @@ class Attempt1:
                 result += water
 
         return result
+    
+'''
+this only checks for 1 depth holes..
+'''
             
