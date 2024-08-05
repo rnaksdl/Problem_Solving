@@ -11,7 +11,7 @@ Those numbers for which this process ends in 1 are happy.
 Return true if n is a happy number, and false if not.
 '''
 
-class Solution:
+class Solution1:
     def isHappy(self, n: int) -> bool:
 
         visited = set()
@@ -36,3 +36,22 @@ I didn't add "n = result" and got a wrong solution but I fixed it right away.
 But initially, I didin't want to use while true loop and was thinking about how to solve it without one.
 I failed to do so though.
 '''
+
+class Solution2:
+    def isHappy(self, n: int) -> bool:
+        slow, fast = n, self.sumSquareDigits(n)
+
+        while slow != fast:
+            fast = self.sumSquareDigits(fast)
+            fast = self.sumSquareDigits(fast)
+            slow = self.sumSquareDigits(slow)
+
+        return True if fast == 1 else False
+
+    def sumSquareDigits(self, n):
+        output = 0
+        while n:
+            output += (n % 10) ** 2
+            n = n // 10
+        return output
+    
