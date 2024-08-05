@@ -55,5 +55,7 @@ class Solution:
         return output
     
 '''
-This solution is 
+This solution is the one that other's like.
+I think this looks more efficient and clever.
+But for some reason, my sol1 takes less time on the LeetCode website.
 '''
