@@ -41,7 +41,7 @@ I feel sick tho, so I can't think straight..
 '''
 
 
-class Solution:
+class Solution1:
     def isValid(self, s: str) -> bool:
         # init stack
         stack = []
@@ -74,3 +74,35 @@ class Solution:
 '''
 even though this is an easy level problem, it was pretty confusing to me
 '''
+
+
+class Solution2:
+    def isValid(self, s: str) -> bool:
+
+        stack = []
+
+        for char in s:
+            if char == "(" or char == "{" or char == "[":
+                stack.append(char)
+
+            if char == ")":
+                if stack and stack[len(stack)-1] == "(":
+                    stack.pop()
+                else:
+                    return False
+            if char ==  "}":
+                if stack and stack[len(stack)-1] == "{":
+                    stack.pop()
+                else:
+                    return False
+            if char ==  "]":
+                if stack and stack[len(stack)-1] == "[":
+                    stack.pop()
+                else:
+                    return False
+        
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+        
