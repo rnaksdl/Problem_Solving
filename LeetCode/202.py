@@ -37,13 +37,12 @@ But initially, I didin't want to use while true loop and was thinking about how 
 I failed to do so though.
 '''
 
-class Solution2:
+class Solution:
     def isHappy(self, n: int) -> bool:
         slow, fast = n, self.sumSquareDigits(n)
 
         while slow != fast:
-            fast = self.sumSquareDigits(fast)
-            fast = self.sumSquareDigits(fast)
+            fast = self.sumSquareDigits(self.sumSquareDigits(fast))
             slow = self.sumSquareDigits(slow)
 
         return True if fast == 1 else False
@@ -55,3 +54,6 @@ class Solution2:
             n = n // 10
         return output
     
+'''
+This solution is 
+'''
