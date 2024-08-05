@@ -106,3 +106,7 @@ class Solution2:
         else:
             return False
         
+'''
+I fixed my solution
+To me this is much easier to understand..
+'''
