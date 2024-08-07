@@ -13,3 +13,45 @@ It should not end with a slash '/', unless it's the root directory.
 It should exclude any single or double periods used to denote current or parent directories.
 Return the new path.
 '''
+
+
+
+class Attempt1:
+    def simplifyPath(self, path: str) -> str:
+        
+        result = ""
+        stack = []
+
+        periodCtr = 0
+
+        # inter path
+        for c in path:
+
+            # check what c is
+            match c:
+
+                # if c is /, check if the last ele of stack was /, if not, append
+                case "/":
+                    if stack[-1] != "/":
+                        stack.append(c)
+
+                case ".":
+                    periodCtr += 1
+
+                case _:
+                    stack.append(c)
+                
+            if periodCtr > 0:
+                if c != ".":
+                    
+                
+
+
+
+
+
+
+            
+
+                    
+
